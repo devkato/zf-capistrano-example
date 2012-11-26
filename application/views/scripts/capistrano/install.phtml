@@ -1,0 +1,38 @@
+<div class="hero-unit">
+  <h1>Install Capistrano</h1>
+
+  <br/>
+
+  <h3>Rubyのインストール</h3>
+  <pre class='prettyprint lang-sh'>
+# コンパイルに必要なパッケージのインストール
+sudo yum install -y rpm-build rpmdevtools readline-devel ncurses-devel gdbm-devel tcl-devel openssl-devel db4-devel byacc libyaml-devel
+
+# Rubyのソースコードをダウンロードして解凍する
+wget "ftp://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p194.tar.bz2"
+bunzip2 ruby-1.9.3-p194.tar.bz2
+tar xvf ruby-1.9.3-p194.tar
+cd ruby-1.9.3-p194
+
+# コンパイル &amp; インストール
+./configure
+make
+sudo make install
+
+which ruby
+# =&gt; /usr/loca/bin/ruby
+
+ruby -v
+# =&gt; ruby 1.9.3p194 (2012-04-20 revision 35410) [x86_64-linux]</pre>
+
+  <br/>
+
+  <h3>Capistranoのインストール</h3>
+  <pre class='prettyprint lang-sh'>
+# gem（Rubyのパッケージ管理ツール）がインストールされているか確認
+which gem
+# =&gt; /usr/local/bin/gem
+
+# Capistranoをインストール
+sudo gem install capistrano capistrano-ext</pre>
+</div>

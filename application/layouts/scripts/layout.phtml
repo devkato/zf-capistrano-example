@@ -1,0 +1,66 @@
+<!-- application/layouts/scripts/layout.phtml -->
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Zend Framework Quickstart Application</title>
+    <?php echo $this->headLink()->appendStylesheet('/bootstrap/css/bootstrap.min.css') ?>
+    <?php echo $this->headLink()->appendStylesheet('/google-code-prettify/prettify.css') ?>
+    <?php echo $this->headLink()->appendStylesheet('/css/global.css') ?>
+
+    <?php echo $this->headScript()->appendFile('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', 'text/javascript') ?>
+    <?php echo $this->headScript()->appendFile('/google-code-prettify/prettify.js', 'text/javascript') ?>
+    <?php echo $this->headScript()->appendFile('/bootstrap/js/bootstrap.min.js', 'text/javascript') ?>
+
+  </head>
+  <body onload='prettyPrint()'>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/">Zend Framework meets Capistrano!</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="/capistrano/server">Setup Servers</a></li>
+              <li><a href="/capistrano/install">Install Capistrano</a></li>
+              <li><a href="/capistrano/configuration">Configuration Files</a></li>
+<!--
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Capistrano<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/capistrano/server">Setup Servers</a></li>
+                  <li><a href="/capistrano/install">How To Install</a></li>
+                  <li><a href="/capistrano/configuration">Configuration</a></li>
+                </ul>
+              </li>
+-->
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <?php echo $this->layout()->content ?>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Price Strategy Institute</p>
+      </footer>
+
+    </div> <!-- /container -->    
+
+    <script type='text/javscript'>
+      $(document).ready(function() {
+        $('.dropdown-toggle').dropdown();
+      });
+    </script>
+  </body>
+</html>

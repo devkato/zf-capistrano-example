@@ -1,0 +1,90 @@
+<div class="hero-unit">
+  <h1>Configuration Files</h1>
+
+  <br/>
+
+  <h3>${ZF_HOME}/application/config/deploy.rb</h3>
+  <pre class='prettyprint lang-rb'>
+# アプリケーションの名前を指定
+set :application, "geek_app"
+default_run_options[:pty] = true
+set :use_sudo, false
+
+# ソースコードを取得するURL（使用しているVCS毎に異なる）
+set :scm, :git
+set :deploy_via, :remote_cache
+set :repository, "ssh://git@your-repos.com/path-to-project.git"
+
+# メンテナンスページのテンプレートを指定
+set :maintenance_template_path, File.join(File.dirname(__FILE__), "..", "..", "public", "maintenance.html.erb")
+
+# 複数環境にdeployするためのステージ定義
+set :stages, %w(staging production)
+set :stage_dir, "application/configs/deploy"
+require 'capistrano/ext/multistage' 
+
+
+# 元々存在するタスクを上書き（上書きしないとRails用のタスクが走るため）
+namespace :deploy do
+  task :migrate do
+    # マイグレーションはしない
+    # （DBのスキーマ変更をZend Frameworkで管理しているのであれば別途コマンドを定義）
+  end
+
+  task :start, :roles =&gt; :app do
+    run %!sudo /sbin/service httpd start!
+  end
+
+  task :stop, :roles =&gt; :app do
+    run %!sudo /sbin/service httpd stop!
+  end
+
+  task :restart, :roles =&gt; :app do
+    run %!sudo /sbin/service httpd graceful!
+  end 
+end</pre>
+
+  <br/>
+
+  <h3>${ZF_HOME}/application/config/deploy/production.rb</h3>
+  <pre class='prettyprint lang-rb'>
+# 各ロール毎のサーバーを定義する
+role :app do
+  ["app-server-ip-01", "app-server-ip-02"]
+end
+
+# ここではapp ≒  webと解釈してOK
+role :web do
+  ["app-server-ip-01", "app-server-ip-02"]
+end
+
+# マイグレーションを実行するサーバーの指定
+# ※DBが稼働するサーバーではない！
+role :db, "db-server-ip-01", :primary =&gt; true
+
+# アプリケーションのデプロイ先ディレクトリを指定
+set :deploy_to, "/deploy/geek_app"
+
+# SSHで各サーバーにログインするときの情報を指定
+set :user, "geek"
+set :password, "geekgeek"</pre>
+
+  <br/>
+
+  <h3>${ZF_HOME}/application/config/deploy/staging.rb</h3>
+  <pre class='prettyprint lang-rb'>
+role :app do
+  ["app-server-ip-01"]
+end
+
+role :web do
+  ["app-server-ip-01"]
+end
+
+role :db, "db-server-ip-01", :primary => true
+
+set :deploy_to, "/deploy/geek_app"
+
+set :user, "geek"
+set :password, "geek"</pre>
+</div>
