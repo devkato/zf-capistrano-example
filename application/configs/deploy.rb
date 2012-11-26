@@ -6,7 +6,7 @@ set :use_sudo, false
 # source control settings
 set :scm, :git
 set :deploy_via, :remote_cache
-set :repository, "ssh://git@repos.npi.jp/repos/git/zf-cap-example.git"
+set :repository, "git@github.com:devkato/zf-capistrano-example.git"
 set :maintenance_template_path, File.join(File.dirname(__FILE__), "..", "..", "public", "maintenance.html.erb")
 
 # stages
