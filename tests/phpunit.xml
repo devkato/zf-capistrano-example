@@ -1,7 +1,8 @@
-<phpunit bootstrap="./bootstrap.php">
+<phpunit bootstrap="./bootstrap.php" colors='true' printsummary="true" codecoverage="true">
     <testsuite name="Application Test Suite">
         <directory>./application</directory>
     </testsuite>
+
     <testsuite name="Library Test Suite">
         <directory>./library</directory>
     </testsuite>
@@ -14,4 +15,18 @@
         </whitelist>
         -->
     </filter>
+
+<!--
+    <formatter todir="reports" type="xml" outfile="coverage/coverage.xml" />
+    <batchtest>
+        <fileset dir="test">
+            <include name="**/*Test.php" />
+        </fileset>
+    </batchtest>
+-->
+    <logging>
+        <log type="coverage-html" target="reports/coverage" charset="UTF-8" yui="true" highlight="true" lowUpperBound="50" highLowerBound="80" />
+        <!-- <log type="testdox-html" target="log/testdox.html" /> -->
+        <log type="coverage-clover" target="reports/coverage/coverage.xml" />
+    </logging>
 </phpunit>
