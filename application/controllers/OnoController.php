@@ -40,18 +40,6 @@ class OnoController extends Zend_Controller_Action
 
     public function geriAction()
     {
-      $tasks = array(
-        "monocheki",
-        "SLA",
-        "UDS",
-        "Crawler",
-        "Conference",
-        "Ruby on Rails"
-      );
-      $count = count($tasks);
-      for ($i = 0; $i < $count; $i++) {
-        $i / $count;
-      }
     }
 
     public function convert_string_to_integer($str) {
