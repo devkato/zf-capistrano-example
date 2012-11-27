@@ -10,7 +10,7 @@
   <filter>
     <!-- If Zend Framework is inside your project's library, uncomment this filter -->
     <blacklist>
-      <directory suffix=".php">./library</directory>
+      <directory suffix=".php">../../library</directory>
     </blacklist>
     <whitelist>
       <directory suffix=".php">../../application/controllers</directory>
