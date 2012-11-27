@@ -54,6 +54,10 @@ class OnoController extends Zend_Controller_Action
       }
     }
 
+    public function convert_string_to_integer($str) {
+      return $str;
+    }
+
     /*
     public function xxxAction()
     {
