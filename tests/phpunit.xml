@@ -13,7 +13,7 @@
       <directory suffix=".php">./library</directory>
     </blacklist>
     <whitelist>
-      <directory suffix=".php">./application</directory>
+      <directory suffix=".php">../../application</directory>
     </whitelist>
   </filter>
 
