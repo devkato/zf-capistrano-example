@@ -19,10 +19,12 @@ class OnoControllerTest extends Zend_Test_PHPUnit_ControllerTestCase {
     $this->assertQueryContentContains('div.result', "出たー");
   }
 
+/*
   public function testGeri() {
     $this->dispatch('/ono/geri');
     $this->assertAction('geri');
   }
+*/
 /*
   public function testXXX() {
     $this->dispatch('/');
