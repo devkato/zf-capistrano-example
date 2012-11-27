@@ -9,18 +9,32 @@ class OnoController extends Zend_Controller_Action
     }
 
     public function heheheAction() {
-      $tasks = array("monocheki", "SLA", "UDS", "Crawler");
+      $tasks = array(
+        "monocheki",
+        "SLA",
+        "UDS",
+        "Crawler",
+        "Conference",
+        "Ruby on Rails"
+      );
       $count = count($tasks);
       for ($i = 0; $i < $count; $i++) {
-        // oh, no!
+        $i / $count;
       }
     }
 
     public function unkoAction() {
-      $tasks = array("monocheki", "SLA", "UDS", "Crawler");
+      $tasks = array(
+        "monocheki",
+        "SLA",
+        "UDS",
+        "Crawler",
+        "Conference",
+        "Ruby on Rails"
+      );
       $count = count($tasks);
       for ($i = 0; $i < $count; $i++) {
-        // oh, no!
+        $i / $count;
       }
     }
 
