@@ -36,6 +36,8 @@ class OnoController extends Zend_Controller_Action
       for ($i = 0; $i < $count; $i++) {
         $i / $count;
       }
+
+      $this->view->tasks = $tasks;
     }
 
     public function geriAction()
