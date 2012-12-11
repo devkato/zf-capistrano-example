@@ -18,8 +18,7 @@ class IndexControllerTest extends Zend_Test_PHPUnit_ControllerTestCase {
 
     $this->assertAction('index');
     $this->assertNotAction('hello');
-    //$this->assertQueryContentContains('a.brand', "小野さん仕事して下さい by カナイ");
-    $this->assertQueryContentContains('a.brand', "Zend Framework meets Capistrano!");
+    $this->assertQueryContentContains('a.brand', "Zend Framework meets Takenaga!");
   }
 
 
